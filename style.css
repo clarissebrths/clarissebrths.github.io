@@ -66,3 +66,18 @@ section {
   color: var(--accent);
   font-weight: bold;
 }
+
+/*Mettre le mode sombre si l'appareil est en mode sombre
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fond: #111827;
+    --texte: #e5e7eb;
+    --carte: #1f2937;
+  }
+}*/
+
+body.sombre {
+  --fond: #111827;
+  --texte: #e5e7eb;
+  --carte: #1f2937;
+}

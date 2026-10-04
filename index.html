@@ -6,6 +6,8 @@
   <title>Mon e-portfolio</title>
   <link rel="stylesheet" href="style.css">
 
+  <img src="capture.png" alt="Capture d'écran de l'application">
+
   <nav>
   <a href="#welcom">Welcome</a>
   <a href="#EngineeringCourse">Engineering course</a>
@@ -24,6 +26,14 @@
     <h1>Clarisse BARTHES</h1>
     <p>Étudiante en Sciences du Numérique à l'ENSEEIHT </p>
   </header>
+  
+  <button id="theme">🌙</button>
+  <script>
+    const bouton = document.getElementById("theme");   // 1. on récupère le bouton
+    bouton.addEventListener("click", () => {           // 2. on écoute le clic
+      document.body.classList.toggle("sombre");        // 3. on ajoute/retire la classe "sombre"
+    });
+  </script>
 
   <section id="Welcome">
     <h2>Welcome</h2>
@@ -64,8 +74,12 @@
 
   <section id="Career Development">
   <h2>Career Development</h2>
+  <a href="cv.pdf" download>Télécharger mon CV en français</a>
+  <a href="cvenglish.pdf" download>Télécharger mon CV en anglais</a>
   
   </section>
+
+  
 </body>
 
 
