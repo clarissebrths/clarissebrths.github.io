@@ -1,71 +1,188 @@
-/* 1. Variables : modifiez les couleurs ici, tout le site change */
+/* ===== 1. VARIABLES : changez les couleurs ici, tout le site suit ===== */
 :root {
-  --fond: #ffffff;
-  --texte: #1f2933;
-  --accent: #3b82f6;
-  --carte: #f3f4f6;
+  --fond: #0e1a2b;
+  --fond-carte: #16263c;
+  --texte: #e9edf3;
+  --discret: #8fa0b5;
+  --accent: #f2b84b;
+  --trait: #263a55;
+  --police-titre: "Space Grotesk", system-ui, sans-serif;
+  --police-texte: "Source Serif 4", Georgia, serif;
 }
-
-/* 2. Réglages de base */
-* {
-  box-sizing: border-box; /* la taille inclut padding et bordure : plus intuitif */
+ 
+/* Thème clair automatique si l'appareil du visiteur est en mode clair */
+@media (prefers-color-scheme: light) {
+  :root {
+    --fond: #f6f7f9;
+    --fond-carte: #ffffff;
+    --texte: #17202e;
+    --discret: #5b6879;
+    --accent: #b86e00;
+    --trait: #d9dee6;
+  }
 }
-
+ 
+/* ===== 2. BASE ===== */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4rem; } /* évite que la barre cache les titres */
 body {
-  margin: 0;                          /* supprime la marge par défaut du navigateur */
-  font-family: system-ui, sans-serif; /* police propre, sans rien télécharger */
-  background: var(--fond);            /* var(...) lit une variable définie plus haut */
+  margin: 0;
+  background: var(--fond);
   color: var(--texte);
-  line-height: 1.6;                   /* espace entre les lignes : améliore la lecture */
+  font-family: var(--police-texte);
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
-
-/* 3. Le header */
-header {
-  text-align: center;
-  padding: 3rem 1rem;       /* espace INTÉRIEUR : haut/bas 3rem, côtés 1rem */
-  background: var(--accent);
-  color: white;
+h1, h2, h3, h4, .meta, .badge, nav, .lien { font-family: var(--police-titre); }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+ 
+/* ===== 3. BARRE DE NAVIGATION ===== */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: var(--fond);
+  border-bottom: 1px solid var(--trait);
 }
-
-nav a {
-  color: white;
-  margin: 0 0.75rem;        /* espace EXTÉRIEUR : haut/bas 0, côtés 0.75rem */
-  text-decoration: none;    /* enlève le soulignement */
+.logo { font-weight: 700; font-size: 1.2rem; text-decoration: none; color: var(--texte); }
+nav { display: flex; gap: 1.5rem; }
+nav a { color: var(--discret); text-decoration: none; font-size: 0.95rem; }
+nav a:hover { color: var(--accent); }
+ 
+#burger {
+  display: none;               /* caché sur grand écran */
+  background: none; border: 1px solid var(--trait); color: var(--texte);
+  font-size: 1.3rem; padding: 0.2rem 0.6rem; border-radius: 6px; cursor: pointer;
 }
-
-nav a:hover {
-  text-decoration: underline; /* :hover = quand la souris passe dessus */
+ 
+/* ===== 4. HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 6rem 1.25rem 3rem;
+  max-width: 1000px; margin: 0 auto;
 }
-
-/* 4. Les sections */
-section {
-  max-width: 900px;         /* limite la largeur : plus lisible sur grand écran */
-  margin: 0 auto;           /* "auto" à gauche/droite = centré */
-  padding: 2rem 1rem;
+.hero h1 {
+  font-size: clamp(3.5rem, 14vw, 9rem);   /* s'adapte à la largeur de l'écran */
+  line-height: 0.95; letter-spacing: -0.03em;
+  margin: 1.5rem 0;
 }
-
-/* 5. Les cartes de projets */
-.cartes {
-  display: grid;                                          /* active la grille */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;                                            /* espace entre les cartes */
+.meta { color: var(--discret); font-size: 0.9rem; margin: 0 0 0.4rem; }
+ 
+/* ===== 5. SECTIONS ===== */
+section:not(.hero) {
+  max-width: 1000px; margin: 0 auto;
+  padding: 4rem 1.25rem;
+  border-top: 1px solid var(--trait);
 }
-
+h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); margin: 0 0 2rem; letter-spacing: -0.02em; }
+.num { color: var(--accent); margin-right: 0.6rem; font-weight: 500; }
+h3 { font-size: 1.4rem; margin: 0.3rem 0 0.8rem; }
+h4 { font-size: 0.95rem; color: var(--accent); margin: 1.5rem 0 0.4rem; }
+.sous-titre { margin-top: 3rem; }
+ 
+/* Bienvenue */
+.deux-colonnes { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: start; }
+.texte p { margin-top: 0; }
+ 
+/* Espaces photo : remplacez par de vraies <img> */
+.placeholder {
+  background: var(--fond-carte); border: 1px dashed var(--trait);
+  color: var(--discret); font-family: var(--police-titre);
+  display: grid; place-items: center;
+  aspect-ratio: 4 / 3; border-radius: 8px;
+}
+.portrait { aspect-ratio: 3 / 4; }
+img { max-width: 100%; border-radius: 8px; display: block; }
+ 
+/* Projets */
+.projet {
+  background: var(--fond-carte);
+  border: 1px solid var(--trait); border-radius: 10px;
+  padding: 1.75rem; margin-bottom: 2rem;
+}
+.badge {
+  display: inline-block; margin: 0 0 0.75rem;
+  background: var(--accent); color: var(--fond);
+  font-weight: 700; font-size: 0.85rem; padding: 0.1rem 0.6rem; border-radius: 4px;
+}
+.projet ul { padding-left: 1.2rem; }
+.projet li { margin-bottom: 0.4rem; }
+.lien { display: inline-block; margin-top: 1rem; font-weight: 500; text-decoration: none; }
+.lien:hover { text-decoration: underline; }
+ 
+/* Frise des semestres */
+.frise { list-style: none; padding: 0; margin: 0; border-left: 2px solid var(--trait); }
+.frise li { padding: 0 0 1.5rem 1.5rem; position: relative; }
+.frise li::before {   /* le point sur la ligne */
+  content: ""; position: absolute; left: -7px; top: 0.55rem;
+  width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
+}
+.frise span { font-family: var(--police-titre); font-weight: 700; }
+.frise p { margin: 0; color: var(--discret); }
+.frise .a-venir::before { background: var(--trait); }
+ 
+/* Carrousel */
+.carrousel { position: relative; margin-top: 1.5rem; }
+.piste {
+  display: flex; overflow-x: auto; gap: 1rem;
+  scroll-snap-type: x mandatory;       /* chaque photo "s'accroche" */
+  scrollbar-width: none;
+}
+.piste::-webkit-scrollbar { display: none; }
+.piste figure { flex: 0 0 100%; margin: 0; scroll-snap-align: start; }
+.piste img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+figcaption { color: var(--discret); font-size: 0.9rem; margin-top: 0.5rem; }
+.prev, .next {
+  position: absolute; top: 40%; z-index: 2;
+  background: var(--fond); color: var(--texte);
+  border: 1px solid var(--trait); border-radius: 50%;
+  width: 2.5rem; height: 2.5rem; cursor: pointer;
+}
+.prev { left: 0.5rem; } .next { right: 0.5rem; }
+ 
+/* Engagement */
+.liste-engagement { list-style: none; padding: 0; margin: 0; }
+.liste-engagement li { padding: 1.25rem 0; border-bottom: 1px solid var(--trait); }
+.liste-engagement h3 { margin-bottom: 0.3rem; }
+.liste-engagement p { margin: 0; }
+.liste-engagement em { color: var(--discret); }
+ 
+/* Grille de cartes (loisirs, carrière) */
+.grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
 .carte {
-  background: var(--carte);
-  padding: 1.5rem;
-  border-radius: 12px;      /* coins arrondis */
+  background: var(--fond-carte); border: 1px solid var(--trait);
+  border-radius: 10px; padding: 1.25rem;
 }
-
-.techs {
-  font-size: 0.9rem;
-  opacity: 0.7;
+.carte .placeholder { margin-bottom: 1rem; }
+ 
+/* Pied de page */
+footer {
+  text-align: center; padding: 3rem 1rem;
+  border-top: 1px solid var(--trait); color: var(--discret);
 }
-
-.carte a {
-  color: var(--accent);
-  font-weight: bold;
+footer p { margin: 0.2rem 0; }
+ 
+/* ===== 6. MOBILE ===== */
+@media (max-width: 760px) {
+  #burger { display: block; }
+  nav {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; gap: 0; background: var(--fond);
+    border-bottom: 1px solid var(--trait);
+  }
+  nav.ouvert { display: flex; }
+  nav a { padding: 0.9rem 1.25rem; border-top: 1px solid var(--trait); }
+  .deux-colonnes { grid-template-columns: 1fr; }
+  .portrait { max-width: 260px; }
 }
+ 
+/* Respecte les personnes qui désactivent les animations */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+ 
 
 /*Mettre le mode sombre si l'appareil est en mode sombre
 @media (prefers-color-scheme: dark) {
