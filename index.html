@@ -14,15 +14,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
-  <img src="capture.png" alt="Capture d'écran de l'application">
-
-  <button id="theme">🌙</button>
-  <script>
-    const bouton = document.getElementById("theme");   // 1. on récupère le bouton
-    bouton.addEventListener("click", () => {           // 2. on écoute le clic
-      document.body.classList.toggle("sombre");        // 3. on ajoute/retire la classe "sombre"
-    });
-  </script>
 
   <!--Barre de navigation-->
   <nav>
@@ -32,6 +23,13 @@
   <a href="#SustainabilityCivicEngagement">Sustainability & Civic Engagement</a>
   <a href="#Sportotheractivities">Sport & other activities</a>
   <a href="#CareerDevelopment">Career Development</a>
+  <button id="theme">🌙</button>
+  <script>
+    const bouton = document.getElementById("theme");   // 1. on récupère le bouton
+    bouton.addEventListener("click", () => {           // 2. on écoute le clic
+      document.body.classList.toggle("sombre");        // 3. on ajoute/retire la classe "sombre"
+    });
+  </script>
   </nav>
 
 </head>
@@ -49,8 +47,7 @@
     <section id="welcome">
       <h2><span class="num">00</span> Welcome</h2>
       <div class="deux-colonnes">
-        <div class="placeholder portrait">Your photo</div>
-        <!-- For a real photo: <img src="images/portrait.jpg" alt="Portrait of First Last"> -->
+        <img src="CV_photo.jpg">
         <div class="texte">
           <p>My name is <strong>Clarisse</strong>.</p>
           <p>I am a <strong>1st year in Computer Sciences at ENSEEIHT</strong> student.</p> <!--, specializing in [area]-->
@@ -108,6 +105,7 @@
         <p>The destination is not yet fixed (deliberately). 
           My priority is to find the best academic program and research opportunity aligned with my Digital Sciences specialization (in 2nd year), 
           rather than limiting options to a single country.</p>
+        <img src="carte.jpg">
  
         <!-- Carousel: add one <figure> per photo 
         <div class="carrousel">
@@ -163,21 +161,21 @@
       <div class="grille">
         <article class="carte">
           <div class="placeholder">Photo</div>
-          <p class="meta">Sport · [frequency]</p>
-          <h3>Activity 1</h3>
-          <p>What it brings you (discipline, focus, balance…).</p>
-        </article>
-        <article class="carte">
-          <div class="placeholder">Photo</div>
-          <p class="meta">Sport · [frequency]</p>
-          <h3>Activity 2</h3>
-          <p>What it brings you.</p>
+          <p class="meta">Sport · 1 or 2x/week</p>
+          <h3>Running</h3>
+          <p>To take care of my health and it brings me discipline and resilience. It allows me to focus on my work and to reduce stress.</p>
         </article>
         <article class="carte">
           <div class="placeholder">Photo</div>
           <p class="meta">Creative activity</p>
-          <h3>Activity 3</h3>
-          <p>What it brings you.</p>
+          <h3>Embroider</h3>
+          <p>It helps me to focus on a project which has no link with school. It embellishes and personalizes simple things. </p>
+        </article>
+        <article class="carte">
+          <div class="placeholder">Photo</div>
+          <p class="meta">Cultural activity</p>
+          <h3>Reading</h3>
+          <p>It allows me to think differently, to discover different point of view on different subjects. It develops my creativity.</p>
         </article>
       </div>
     </section>
@@ -187,17 +185,20 @@
       <h2><span class="num">05</span> Career Development</h2>
       <div class="grille">
         <article class="carte">
-          <h3>Resume</h3>
-          <p>My background, projects and experience.</p>
+          <h3>FRENCH CV</h3>
+          <a class="lien" href="documents/cv.pdf" target="_blank" rel="noopener">Open the PDF →</a>
+        </article>
+        <article class="carte">
+          <h3>ENGLISH CV</h3>
           <a class="lien" href="documents/cv.pdf" target="_blank" rel="noopener">Open the PDF →</a>
         </article>
         <article class="carte">
           <h3>LinkedIn</h3>
           <p>My professional profile.</p>
-          <a class="lien" href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">View the profile →</a>
+          <a class="lien" href="https://www.linkedin.com/in/clarisse-barthes-1b06a7436" target="_blank" rel="noopener">View the profile →</a>
         </article>
         <article class="carte">
-          <h3>Video introduction</h3>
+          <h3>Elevator pitch</h3>
           <p>A short video to introduce myself.</p>
           <a class="lien" href="https://www.youtube.com/" target="_blank" rel="noopener">Watch the video →</a>
         </article>
@@ -213,69 +214,3 @@
  
   <script src="script.js"></script>
 </body>
-
-
-<body>
-
-  <header>
-    <h1>Clarisse BARTHES</h1>
-    <p>Étudiante en Sciences du Numérique à l'ENSEEIHT </p>
-  </header>
-
-  <button id="theme">🌙</button>
-  <script>
-    const bouton = document.getElementById("theme");   // 1. on récupère le bouton
-    bouton.addEventListener("click", () => {           // 2. on écoute le clic
-      document.body.classList.toggle("sombre");        // 3. on ajoute/retire la classe "sombre"
-    });
-  </script>
-
-  <section id="Welcome">
-    <h2>Welcome</h2>
-  
-    <div class="cartes">
-
-    <article class="carte">
-      <h3>Nom du projet</h3>
-      <p>Une phrase : le problème résolu et ce que vous avez fait.</p>
-      <p class="techs">HTML · CSS · JavaScript</p>
-      <a href="https://github.com/votre-pseudo/projet">Voir le code</a>
-    </article>
-
-    <!-- Copiez-collez le bloc <article> pour chaque projet -->
-
-    </div>
-  </section>
-
-  <section id="Engineering course">
-    <h2>Engineering course</h2>
-
-  </section>
-
-  <section id="International Mobility">
-  <h2>International Mobility</h2>
-  
-  </section>
-
-  <section id="Sustainability & Civic Engagement">
-  <h2>Sustainability & Civic Engagement</h2>
-  
-  </section>
-
-  <section id="Sport & other activities">
-  <h2>Sport & other activities</h2>
-  
-  </section>
-
-  <section id="Career Development">
-  <h2>Career Development</h2>
-  <a href="cv_eportfolio.pdf" download>Télécharger mon CV en français</a>
-  <a href="cvenglish.pdf" download>Télécharger mon CV en anglais</a>
-  
-  </section>
-
-  
-</body>
-
-
-</html>
