@@ -23,12 +23,12 @@
   <a href="#SustainabilityCivicEngagement">Sustainability & Civic Engagement</a>
   <a href="#Sportotheractivities">Sport & other activities</a>
   <a href="#CareerDevelopment">Career Development</a>
-  <button id="theme" type="button" aria-label="Switch theme">🌙</button>
+  <!--<button id="theme" type="button" aria-label="Switch theme">🌙</button>
   <script>
     const bouton = document.getElementById("theme");   // 1. on récupère le bouton
     bouton.addEventListener("click", () => {           // 2. on écoute le clic
       document.body.classList.toggle("sombre");        // 3. on ajoute/retire la classe "sombre"
-    });
+    });-->
   </script>
   </nav>
 
@@ -50,7 +50,7 @@
         <img src="CV_photo.jpg">
         <div class="texte">
           <p>My name is <strong>Clarisse</strong>.</p>
-          <p>I am a <strong>1st year in Computer Sciences at ENSEEIHT</strong> student.</p> <!--, specializing in [area]-->
+          <p>I am a <strong>1st year student in Computer Sciences at ENSEEIHT</strong>.</p> <!--, specializing in [area]-->
           <p>This portfolio brings together my projects, what I learned from them, and who I am.</p>
           <p> Thank you for visiting.</p>
         </div>
@@ -137,10 +137,7 @@
         <li>
           <p class="meta">Environment and Climate</p>
           <h3>Climate Fresk</h3>
-          <div class="deux-colonnes">
-          <p>A collaborative workshop created to understand the causes and consequences of climate change. </p>
-          <img src="la-fresque-du-climat-logo.png" width="200">
-          </div>
+          <p>A collaborative workshop created to understand the causes and consequences of climate change.</p>
         </li>
         <li>
           <p class="meta">Environment and Climate</p>
@@ -150,11 +147,18 @@
         <li>
           <p class="meta">Environment and Climate</p>
           <h3>2tonnes workshop</h3>
-          <div class="deux-colonnes">
-          <p>A collaborative workshop designed to understand how we can, idividually and collectively, have an impact to limit carbon footprint to 2 tonnes per person by 2050. </p>
-          <img src="Logo_2tonnes.png" width="200">
-          </div>
+          <p>A collaborative workshop designed to understand how we can, idividually and collectively, have an impact to limit carbon footprint to 2 tonnes per person by 2050.</p>
         </li>
+
+         <div class="galerie">
+          <figure class="logo-img">
+          <img src="la-fresque-du-climat-logo.png" alt="Climate Fresk logo">
+          </figure>
+
+          <figure class="logo-img">
+            <img src="Logo_2tonnes.png" alt="2tonnes workshop logo">
+            </figure>
+            </div>
       </ul>
     </section>
  
@@ -164,7 +168,7 @@
       <div class="grille">
         <article class="carte">
           <div class="placeholder"><img src="Running.avif" width="600"></div>
-          <p class="meta">Sport · 1 or 2x/week</p>
+          <p class="meta">Sport</p>
           <h3>Running</h3>
           <p>To take care of my health and it brings me discipline and resilience. It allows me to focus on my work and to reduce stress.</p>
         </article>

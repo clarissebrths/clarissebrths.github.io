@@ -1,10 +1,11 @@
 /* ===== 1. VARIABLES : changez les couleurs ici, tout le site suit ===== */
 :root {
-  --fond: #79899f;
-  --fond-carte: #536783;
-  --texte: #0d1829;
-  --discret: #0c1d30;
-  --accent: #e3c998;
+   --fond: #111827;
+  --texte: #e5e7eb;
+  --carte: #1f2937;
+    --fond-carte: #051730;
+    --accent: #f2b84b;
+  --discret: #5b6879;
   --trait: #263a55;
   --police-titre: "Space Grotesk", system-ui, sans-serif;
   --police-texte: "Source Serif 4", Georgia, serif;
@@ -202,13 +203,13 @@ footer p { margin: 0.2rem 0; }
   }
 }*/
 
-body.sombre {
+/*body.sombre {
   --fond: #111827;
   --texte: #e5e7eb;
   --carte: #1f2937;
     --fond-carte: #051730;
     --accent: #f2b84b;
-  --discret: #5b6879;}
+  --discret: #5b6879;}*/
 
 nav a,
 #theme {
@@ -240,3 +241,48 @@ nav a:hover,
 
 nav a:hover::after,
 #theme:hover::after { transform: scaleX(1); }
+.galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 3 en ligne sur grand écran, 1 sur mobile */
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.galerie figure {
+  margin: 0;
+  overflow: hidden;                  /* cache ce qui dépasse pendant le zoom */
+  background: var(--fond-carte);
+  border: 1px solid var(--trait);
+  border-radius: 10px;
+}
+
+.galerie img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;               /* toutes les images ont le même format */
+  object-fit: cover;                 /* remplit la case en recadrant */
+  transition: transform 0.4s ease;
+}
+
+.galerie figure:hover img {
+  transform: scale(1.05);            /* léger zoom au survol */
+}
+
+/* Logos : entiers, sur fond blanc, sans recadrage */
+.galerie .logo-img img {
+  object-fit: contain;
+  background: #ffffff;
+  padding: 1.25rem;
+}
+
+.galerie figcaption {
+  padding: 0.6rem 0.9rem;
+  font-family: var(--police-titre);
+  font-size: 0.85rem;
+  color: var(--discret);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galerie img { transition: none; }
+  .galerie figure:hover img { transform: none; }
+}
